@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ListOfGoals = () => {
-    return (
-      <ul>
-        <li>
-            <p>My goal is to goalName, by goalDeadline.</p>
+const ListOfGoals = ({ allGoals }) => {
+  const [list, setlist] = useState([{}]);
+
+  return (
+    <ul>
+      {allGoals.map((item) => {
+        return (
+          <li>
+            <p>
+              My goal is to {item.goal}, by {item.by}.
+            </p>
           </li>
-      </ul>
-    );
-}
+        );
+      })}
+    </ul>
+  );
+};
 
 export default ListOfGoals;
